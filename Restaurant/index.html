@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rabbit Eats</title>
+  <style>
+
+    /* --- Existing styles from before (unchanged) --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #fff8f0;
+      color: #4a342e;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #d35400;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-family: 'Georgia', serif;
+      font-weight: bold;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f9d342;
+    }
+
+    .hero {
+  background: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 8px #000;
+  padding: 0 20px;
+  text-align: center;
+}
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .hero button {
+      background-color: #f9d342;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    .hero button:hover {
+      background-color: #d4b82b;
+    }
+
+    .menu-section {
+      padding: 60px 40px;
+      background-color: #fff3e6;
+      text-align: center;
+    }
+
+    .menu-section h3 {
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      color: #d35400;
+    }
+
+    .menu-items {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .menu-item {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+      width: 280px;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .menu-item img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      object-fit: cover;
+      height: 180px;
+    }
+
+    .menu-item h4 {
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+      color: #a84300;
+    }
+
+    .menu-item p {
+      font-size: 0.9rem;
+      color: #5a3e1b;
+      margin-bottom: 10px;
+      min-height: 60px;
+    }
+
+    .menu-item span {
+      font-weight: bold;
+      color: #d35400;
+      font-size: 1.1rem;
+    }
+
+    /* --- New Reservation Section Styling --- */
+    .reservation-section {
+      background-color: #f9d342;
+      padding: 60px 40px;
+      text-align: center;
+      color: #4a342e;
+    }
+
+    .reservation-section h3 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+    }
+
+    form.reservation-form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    form.reservation-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    form.reservation-form input,
+    form.reservation-form select {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 20px;
+      border: 2px solid #d3a91e;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    form.reservation-form input:focus,
+    form.reservation-form select:focus {
+      border-color: #a06f00;
+      outline: none;
+    }
+
+    form.reservation-form button {
+      background-color: #d35400;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    form.reservation-form button:hover {
+      background-color: #a84300;
+    }
+
+    .contact-section {
+      padding: 50px 40px;
+      background-color: #d35400;
+      color: white;
+      text-align: center;
+    }
+
+    .contact-section h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-section p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .contact-section a {
+      color: #f9d342;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      background-color: #3b1d00;
+      color: #f9d342;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .menu-items {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div
+    <img src="https://img.icons8.com/emoji/48/rabbit-face.png" alt="Rabbit Logo">
+    <h1>Rabbit Eats</h1>
+  </div>
+  <nav>
+    <a href="#menu">Menu</a>
+    <a href="#reservation">Reserve</a>
+    <a href="#contact">Contact</a>
+    <a href="#location">Location</a>
+    <a href="#specials">Special Items</a>
+  </nav>
+</header> 
+
+  <section class="hero">
+    <h2>Welcome to RabbitEats</h2>
+    <p>Experience the taste of tradition with our handcrafted dishes made from fresh ingredients.</p>
+    <button onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'});">Explore Menu</button>
+  </section>
+
+  <section id="menu" class="menu-section">
+    <h3>Our Specials</h3>
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=400&q=80" alt="Grilled Steak" />
+        <h4>Grilled Steak</h4>
+        <p>Juicy grilled steak served with garlic butter and fresh herbs.</p>
+        <span>$24.99</span>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Pasta Primavera" />
+        <h4>Pasta Primavera</h4>
+        <p>Fresh vegetables tossed with pasta and a light olive oil sauce.</p>
+        <span>$18.50</span>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=400&q=80" alt="Chocolate Dessert" />
+        <h4>Chocolate Lava Cake</h4>
+        <p>Warm chocolate cake with a molten center, served with vanilla ice cream.</p>
+        <span>$8.99</span>
+        <img src="images/dish1.jpg" alt="Dish 1" />
+
+      <!-- Add this after the reservation section and before contact -->
+
+<!-- Special Items Section -->
+<section id="specials" class="menu-section" style="background-color: #fef6e4;">
+  <h3>Chef's Special Items</h3>
+  <div class="menu-items">
+    <div class="menu-item">
+      <img src="https://images.unsplash.com/photo-1543352634-2f165fbb268b?auto=format&fit=crop&w=400&q=80" alt="Truffle Risotto" />
+      <h4>Truffle Risotto</h4>
+      <p>Creamy risotto with fresh truffles and parmesan cheese.</p>
+      <span>$29.99</span>
+    </div>
+    <div class="menu-item">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Lobster Tail" />
+      <h4>Butter Poached Lobster Tail</h4>
+      <p>Succulent lobster tail cooked in garlic butter sauce.</p>
+      <span>$39.99</span>
+    </div>
+    <div class="menu-item">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=400&q=80" alt="Chocolate Souffle" />
+      <h4>Chocolate Souffle</h4>
+      <p>Light and airy chocolate souffle with a rich ganache center.</p>
+      <span>$12.99</span>
+    </div>
+  </div>
+</section>
+
+<!-- Location Section -->
+<section id="location" class="reservation-section" style="background-color: #fff3e6; color: #4a342e;">
+  <h3>Find Us Here</h3>
+  <p>123 Foodie Lane, Flavor Town, USA</p>
+  <p>Open Daily: 11 AM – 10 PM</p>
+  
+  <!-- Embedded Google Map -->
+  <div style="width: 100%; max-width: 600px; margin: 20px auto;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0196516412957!2d-122.41941508468192!3d37.77492927975892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c64b1d5bb%3A0x4c6b1e6c6b633f9b!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1690530184273!5m2!1sen!2s"
+      width="100%"
+      height="350"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- New Reservation Section -->
+  <section id="reservation" class="reservation-section">
+    <h3>Reserve Your Table</h3>
+    <form class="reservation-form" onsubmit="handleReservation(event)">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your full name" />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+      <label for="date">Reservation Date</label>
+      <input type="date" id="date" name="date" required min="" />
+
+      <label for="time">Reservation Time</label>
+      <input type="time" id="time" name="time" required />
+
+      <label for="guests">Number of Guests</label>
+      <select id="guests" name="guests" required>
+        <option value="" disabled selected>Select number</option>
+        <option value="1">1 Guest</option>
+        <option value="2">2 Guests</option>
+        <option value="3">3 Guests</option>
+        <option value="4">4 Guests</option>
+        <option value="5">5 Guests</option>
+        <option value="6">6 Guests</option>
+        <option value="7">7 Guests</option>
+        <option value="8">8 Guests</option>
+      </select>
+
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h3>Contact Us</h3>
+    <p>123 Foodie Lane, Flavor Town, Tenail</p>
+    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+    <p>Email: <a href="mailto:info@RabbitEats">infoRabbitEats@gmail.com</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Rabbits Eats. All rights reserved.
+  </footer>
+
+  <script>
+    // Set min date for reservation date field to today
+    const dateInput = document.getElementById('date');
+    const today = n
