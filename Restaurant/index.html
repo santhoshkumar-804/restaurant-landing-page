@@ -4,280 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rabbit Eats</title>
-  <style>
-
-    /* --- Existing styles from before (unchanged) --- */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: #fff8f0;
-      color: #4a342e;
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: #d35400;
-      color: white;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    header h1 {
-      font-family: 'Georgia', serif;
-      font-weight: bold;
-      font-size: 1.8rem;
-      letter-spacing: 2px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #f9d342;
-    }
-
-    .hero {
-  background: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-shadow: 2px 2px 8px #000;
-  padding: 0 20px;
-  text-align: center;
-}
-
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 600px;
-      margin-bottom: 30px;
-    }
-
-    .hero button {
-      background-color: #f9d342;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    }
-
-    .hero button:hover {
-      background-color: #d4b82b;
-    }
-
-    .menu-section {
-      padding: 60px 40px;
-      background-color: #fff3e6;
-      text-align: center;
-    }
-
-    .menu-section h3 {
-      font-size: 2.2rem;
-      margin-bottom: 40px;
-      color: #d35400;
-    }
-
-    .menu-items {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .menu-item {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 6px 10px rgba(0,0,0,0.1);
-      width: 280px;
-      padding: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    .menu-item:hover {
-      transform: translateY(-10px);
-    }
-
-    .menu-item img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 15px;
-      object-fit: cover;
-      height: 180px;
-    }
-
-    .menu-item h4 {
-      margin-bottom: 8px;
-      font-size: 1.3rem;
-      color: #a84300;
-    }
-
-    .menu-item p {
-      font-size: 0.9rem;
-      color: #5a3e1b;
-      margin-bottom: 10px;
-      min-height: 60px;
-    }
-
-    .menu-item span {
-      font-weight: bold;
-      color: #d35400;
-      font-size: 1.1rem;
-    }
-
-    /* --- New Reservation Section Styling --- */
-    .reservation-section {
-      background-color: #f9d342;
-      padding: 60px 40px;
-      text-align: center;
-      color: #4a342e;
-    }
-
-    .reservation-section h3 {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-    }
-
-    form.reservation-form {
-      max-width: 500px;
-      margin: 0 auto;
-      text-align: left;
-      background: white;
-      padding: 30px 25px;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    }
-
-    form.reservation-form label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    form.reservation-form input,
-    form.reservation-form select {
-      width: 100%;
-      padding: 10px 12px;
-      margin-bottom: 20px;
-      border: 2px solid #d3a91e;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.3s ease;
-    }
-
-    form.reservation-form input:focus,
-    form.reservation-form select:focus {
-      border-color: #a06f00;
-      outline: none;
-    }
-
-    form.reservation-form button {
-      background-color: #d35400;
-      color: white;
-      border: none;
-      padding: 15px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border-radius: 30px;
-      cursor: pointer;
-      width: 100%;
-      transition: background-color 0.3s ease;
-    }
-
-    form.reservation-form button:hover {
-      background-color: #a84300;
-    }
-
-    .contact-section {
-      padding: 50px 40px;
-      background-color: #d35400;
-      color: white;
-      text-align: center;
-    }
-
-    .contact-section h3 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    .contact-section p {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-    }
-
-    .contact-section a {
-      color: #f9d342;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer {
-      background-color: #3b1d00;
-      color: #f9d342;
-      text-align: center;
-      padding: 15px 10px;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .menu-items {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      nav a {
-        margin-left: 0;
-        margin-right: 15px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header>
-  <div
-    <img src="https://img.icons8.com/emoji/48/rabbit-face.png" alt="Rabbit Logo">
-    <h1>Rabbit Eats</h1>
-  </div>
-  <nav>
-    <a href="#menu">Menu</a>
-    <a href="#reservation">Reserve</a>
-    <a href="#contact">Contact</a>
-    <a href="#location">Location</a>
-    <a href="#specials">Special Items</a>
-  </nav>
-</header> 
+  <header>
+    <div>
+      <img src="data:image/jpeg;base64,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" alt="Rabbit Logo" />
+      <h1>Rabbit Eats</h1>
+    </div>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#specials">Special Items</a>
+      <a href="#location">Location</a>
+      <a href="#reservation">Reserve</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header> 
 
   <section class="hero">
     <h2>Welcome to RabbitEats</h2>
@@ -305,56 +47,50 @@
         <h4>Chocolate Lava Cake</h4>
         <p>Warm chocolate cake with a molten center, served with vanilla ice cream.</p>
         <span>$8.99</span>
-        <img src="images/dish1.jpg" alt="Dish 1" />
-
-      <!-- Add this after the reservation section and before contact -->
-
-<!-- Special Items Section -->
-<section id="specials" class="menu-section" style="background-color: #fef6e4;">
-  <h3>Chef's Special Items</h3>
-  <div class="menu-items">
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1543352634-2f165fbb268b?auto=format&fit=crop&w=400&q=80" alt="Truffle Risotto" />
-      <h4>Truffle Risotto</h4>
-      <p>Creamy risotto with fresh truffles and parmesan cheese.</p>
-      <span>$29.99</span>
-    </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Lobster Tail" />
-      <h4>Butter Poached Lobster Tail</h4>
-      <p>Succulent lobster tail cooked in garlic butter sauce.</p>
-      <span>$39.99</span>
-    </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=400&q=80" alt="Chocolate Souffle" />
-      <h4>Chocolate Souffle</h4>
-      <p>Light and airy chocolate souffle with a rich ganache center.</p>
-      <span>$12.99</span>
-    </div>
-  </div>
-</section>
-
-<!-- Location Section -->
-<section id="location" class="reservation-section" style="background-color: #fff3e6; color: #4a342e;">
-  <h3>Find Us Here</h3>
-  <p>123 Foodie Lane, Flavor Town, USA</p>
-  <p>Open Daily: 11 AM – 10 PM</p>
-  
-  <!-- Embedded Google Map -->
-  <div style="width: 100%; max-width: 600px; margin: 20px auto;">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0196516412957!2d-122.41941508468192!3d37.77492927975892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c64b1d5bb%3A0x4c6b1e6c6b633f9b!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1690530184273!5m2!1sen!2s"
-      width="100%"
-      height="350"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-</section>
-
       </div>
+    </div>
+  </section>
+
+  <!-- Special Items Section -->
+  <section id="specials" class="menu-section" style="background-color: #fef6e4;">
+    <h3>Chef's Special Items</h3>
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1543352634-2f165fbb268b?auto=format&fit=crop&w=400&q=80" alt="Truffle Risotto" />
+        <h4>Truffle Risotto</h4>
+        <p>Creamy risotto with fresh truffles and parmesan cheese.</p>
+        <span>$29.99</span>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Lobster Tail" />
+        <h4>Butter Poached Lobster Tail</h4>
+        <p>Succulent lobster tail cooked in garlic butter sauce.</p>
+        <span>$39.99</span>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=400&q=80" alt="Chocolate Souffle" />
+        <h4>Chocolate Souffle</h4>
+        <p>Light and airy chocolate souffle with a rich ganache center.</p>
+        <span>$12.99</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="location" class="reservation-section" style="background-color: #fff3e6; color: #4a342e;">
+    <h3>Find Us Here</h3>
+    <p>123 Foodie Lane, Flavor Town, Tenail</p>
+    <p>Open Daily: 11 AM – 10 PM</p>
+    <div style="width: 100%; max-width: 600px; margin: 20px auto;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0196516412957!2d-122.41941508468192!3d37.77492927975892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c64b1d5bb%3A0x4c6b1e6c6b633f9b!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1690530184273!5m2!1sen!2s"
+        width="100%"
+        height="350"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </section>
 
@@ -405,4 +141,14 @@
   <script>
     // Set min date for reservation date field to today
     const dateInput = document.getElementById('date');
-    const today = n
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+
+    function handleReservation(event) {
+      event.preventDefault();
+      alert('Thank you for your reservation!');
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
