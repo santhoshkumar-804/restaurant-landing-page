@@ -1,0 +1,281 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: #fff8f0;
+    color: #4a342e;
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: #d35400;
+    color: yellow;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    font-style: italic;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  header h1 {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  
+  nav a {
+    color: yellow;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 600;
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+  }
+/* Logo container */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d35400; /* Match theme color */
+}
+/* Logo image */
+.logo-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* Nav link styling */
+.nav-links li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+  
+  nav a:hover {
+    color: #f9d342;
+  }
+  
+  .hero {
+    background: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: yellow;
+    text-shadow: 2px 2px 8px #000;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+  }
+  
+  .hero button {
+    background-color: #f9d342;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+  
+  .hero button:hover {
+    background-color: #d4b82b;
+  }
+  
+  .menu-section {
+    padding: 60px 40px;
+    background-color: #fff3e6;
+    text-align: center;
+  }
+  
+  .menu-section h3 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: #d35400;
+  }
+  
+  .menu-items {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .menu-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+    width: 280px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .menu-item img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    height: 180px;
+  }
+  
+  .menu-item h4 {
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+    color: #a84300;
+  }
+  
+  .menu-item p {
+    font-size: 0.9rem;
+    color: #5a3e1b;
+    margin-bottom: 10px;
+    min-height: 60px;
+  }
+  
+  .menu-item span {
+    font-weight: bold;
+    color: #d35400;
+    font-size: 1.1rem;
+  }
+  
+  /* Reservation Section Styling */
+  .reservation-section {
+    background-color: #f9d342;
+    padding: 60px 40px;
+    text-align: center;
+    color: #4a342e;
+  }
+  
+  .reservation-section h3 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+  
+  form.reservation-form {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  }
+  
+  form.reservation-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  form.reservation-form input,
+  form.reservation-form select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: 2px solid #d3a91e;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+  }
+  
+  form.reservation-form input:focus,
+  form.reservation-form select:focus {
+    border-color: #a06f00;
+    outline: none;
+  }
+  
+  form.reservation-form button {
+    background-color: #d35400;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  form.reservation-form button:hover {
+    background-color: #a84300;
+  }
+  
+  .contact-section {
+    padding: 50px 40px;
+    background-color: #d35400;
+    color: white;
+    text-align: center;
+  }
+  
+  .contact-section h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .contact-section p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  
+  .contact-section a {
+    color: #f9d342;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  footer {
+    background-color: #3b1d00;
+    color: #f9d342;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 768px) {
+    .menu-items {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    header {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    nav a {
+      margin-left: 0;
+      margin-right: 15px;
+    }
+  }
+  
